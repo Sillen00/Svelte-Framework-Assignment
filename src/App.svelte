@@ -3,41 +3,41 @@
   import Counter from "./lib/Counter.svelte";
   import { frameworks } from "../data/index";
 
-  // let apa = function () {
-  //   for (let framework of frameworks) {
-  //     return framework.color;
-  //   }
-  // };
+  let emptyCell = function () {
+    for (let i = 0; i < frameworks[0].surveys.length; i++) {
+      // return framework.color;
+    }
+  };
 </script>
 
 <main>
   <h1>State of Javascript</h1>
+
   {#each frameworks as framework}
     <div class="framework-container framework-container-{framework.name}">
-      <p class="framework-name-left" style="color: {framework.color};">
-        {framework.name}
-      </p>
-      <!-- <div class="line-container"> -->
-      <div class="line" />
-      <!-- <div class="circle-container"> -->
+      <div class="line-container">
+        <p class="framework-name-left" style="color: {framework.color};">
+          {framework.name}
+        </p>
+        <div class="circle-container">
+          <div style="background-color: {framework.color};" class="line" />
 
-      {#each framework.surveys as survey}
-        <div class="circle" style="color: {framework.color};">
-          {survey.retention}%
-        </div>
-      {/each}
+          {#each framework.surveys as survey}
+            <div class="circle" style="color: {framework.color};">
+              {survey.retention}%
+            </div>
+          {/each}
 
-      <!-- {#each framework[0].surveys.length as survey}
+          <!-- {#each framework[0].surveys.length as survey}
         {#if 7 > framework.surveys.length}
           <div class="circle" style="color: {framework.color};">%</div>
         {/if}
       {/each} -->
-
-      <!-- </div> -->
-      <!-- </div> -->
-      <p class="framework-name-right" style="color: {framework.color};">
-        {framework.name}
-      </p>
+        </div>
+        <p class="framework-name-right" style="color: {framework.color};">
+          {framework.name}
+        </p>
+      </div>
     </div>
   {/each}
 
@@ -66,39 +66,60 @@
   .framework-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     max-width: 800px;
     min-width: 500px;
+    width: 100%;
     margin: 0 auto;
     border: 1px solid white;
   }
 
   .framework-name-left {
     text-align: right;
+    width: 10%;
+    border: 1px solid orange;
+  }
+  .framework-name-right {
+    width: 10%;
+
     border: 1px solid orange;
   }
 
   .line-container {
     /* width: 500px; */
     /* width: 400px; */
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    border: 1px solid red;
+    /* justify-content: space-between; */
+    border: 1px solid yellow;
   }
 
   .line {
     position: absolute;
-    top: 0;
-    left: 0;
+    width: 97%;
+    height: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: -10;
   }
 
   .circle {
     border: 2px solid red;
     /* width: 10px; */
+    background-color: #242424;
   }
 
   .circle-container {
-    border: 1px solid green;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    border: 2px solid green;
+    padding: 0 20px 0 20px;
   }
 </style>
