@@ -61,18 +61,22 @@
   <!-- FOOTER --------------------------------------------------------------------------------------------------------------->
 
   <footer>hej hej</footer>
-
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src="/vite.svg" class="logo" alt="Vite Logo" />
-    </a>
-  </div>
 </main>
 
 <!-- STYLE ---------------------------------------------------------------------------------------------------------------->
 <style>
   * {
     box-sizing: border-box;
+  }
+
+  main {
+    overflow-x: scroll;
+  }
+  header {
+    min-width: 500px;
+  }
+  ::-webkit-scrollbar {
+    display: none;
   }
   /* HEADER CSS --------------------------------------------------------------------- */
   h1 {
