@@ -11,10 +11,24 @@
 </script>
 
 <main>
-  <h1>State of Javascript</h1>
+  <header>
+    <h1>State of Javascript</h1>
+  </header>
 
+  <!-- YEAR CONTAINER ---------------------------------------------------------------->
+  <div class="year-container" data-cy="chart-header">
+    <div class="empty-cell"></div>
+    <div class="year-cell">
+      {#each frameworks[0].surveys as survey}
+      <div>{survey.year}</div>
+      {/each}
+    </div>
+    <div class="empty-cell"></div>
+  </div>
+  <!-- YEAR CONTAINER ---------------------------------------------------------------->
+  <!-- ALL FRAMEWORK CONTAINERS ------------------------------------------------------>
   {#each frameworks as framework}
-    <div class="framework-container framework-container-{framework.name}">
+    <div data-cy="chart-row" class="framework-container framework-container-{framework.name}">
       <div class="line-container">
         <p class="framework-name-left" style="color: {framework.color};">
           {framework.name}
@@ -27,12 +41,6 @@
               {survey.retention}%
             </div>
           {/each}
-
-          <!-- {#each framework[0].surveys.length as survey}
-        {#if 7 > framework.surveys.length}
-          <div class="circle" style="color: {framework.color};">%</div>
-        {/if}
-      {/each} -->
         </div>
         <p class="framework-name-right" style="color: {framework.color};">
           {framework.name}
@@ -40,6 +48,9 @@
       </div>
     </div>
   {/each}
+  <!-- ALL FRAMEWORK CONTAINERS ------------------------------------------------------>
+
+  <footer>hej hej</footer>
 
   <div>
     <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
@@ -56,11 +67,38 @@
   * {
     box-sizing: border-box;
   }
+  
+
   h1 {
     text-align: center;
     background-color: rgb(20, 20, 20);
     margin: 0;
     padding: 1rem;
+  }
+
+  .year-container{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    max-width: 800px;
+    min-width: 500px;
+    margin: 0 auto;
+    border: 3px solid green;
+  }
+
+  .year-cell{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 0 20px 0 20px;
+    border: 2px solid blue;
+  }
+
+  .empty-cell{
+    width: 10%;
+    border: 2px solid red;
+
   }
 
   .framework-container {
@@ -122,4 +160,5 @@
     border: 2px solid green;
     padding: 0 20px 0 20px;
   }
+
 </style>
