@@ -2,6 +2,16 @@
   // import svelteLogo from './assets/svelte.svg' //Används inte.
   // import Counter from "./lib/Counter.svelte"; //Används inte.
   import { frameworks } from "../data/index";
+  // import Router from "svelte-spa-router";
+
+  import Interest from "./Interest.svelte";
+  import Usage from "./Usage.svelte";
+  import Awareness from "./Awareness.svelte";
+  let routes = {
+    "/interest": Interest,
+    "/usage": Usage,
+    "/awareness": Awareness,
+  }
 </script>
 
 <main>
@@ -60,7 +70,12 @@
   {/each}
   <!-- FOOTER --------------------------------------------------------------------------------------------------------------->
 
-  <footer>hej hej</footer>
+  <footer>
+    <button>Retention {frameworks[0].surveys[1].retention}</button>
+    <a href="#/interest"><button>Interest</button></a>
+    <a href="#/usage"> <button>Usage</button></a>
+    <a href="#/awareness"><button>Awareness</button></a>
+  </footer>
 </main>
 
 <!-- STYLE ---------------------------------------------------------------------------------------------------------------->
@@ -165,4 +180,18 @@
     border-radius: 9999999rem;
     z-index: -10;
   }
+
+  /* FOOTER ---------------------------------------------------------------------- */
+  footer{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  footer button{
+    color: white;
+    background-color: rgb(34, 34, 34);
+    padding: 8px 16px; 
+  }
+
 </style>
