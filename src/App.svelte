@@ -22,9 +22,13 @@
   {#each frameworks as framework}
     <div data-cy="chart-row" class="framework-container">
       <!-- LEFT FRAMEWORK NAME -->
-      <p class="framework-name framework-name-left" style="color: {framework.color};">
+      <div
+        data-cy="chart-cell"
+        class="framework-name framework-name-left"
+        style="color: {framework.color};"
+      >
         {framework.name}
-      </p>
+      </div>
       <!-- EMPTY FRAMEWORK CELLS -->
       {#each Array.from({ length: 7 - framework.surveys.length }) as i}
         <div class="empty-chart-cell" data-cy="chart-cell" />
@@ -32,19 +36,26 @@
 
       <!-- FRAMEWORK CELLS -->
       {#each framework.surveys as survey}
-        <div
-          class="chart-cell"
-          style="color: {framework.color}; border: 2px solid {framework.color};"
-        >
-          {survey.retention}%
+        <div data-cy="chart-cell">
+          <div
+            data-cy="chart-circle"
+            class="chart-cell"
+            style="border: 3px solid {framework.color};"
+          >
+            {survey.retention}%
+          </div>
         </div>
       {/each}
       <!-- RIGHT FRAMEWORK NAME -->
-      <p class="framework-name framework-name-right" style="color: {framework.color};">
+      <div
+        data-cy="chart-cell"
+        class="framework-name framework-name-right"
+        style="color: {framework.color};"
+      >
         {framework.name}
-      </p>
+      </div>
       <!-- LINE -->
-      <div style="background-color: {framework.color};" class="line" />
+      <div style="background-color: {framework.color};" class="line" data-cy="row-line" />
     </div>
   {/each}
   <!-- FOOTER --------------------------------------------------------------------------------------------------------------->
@@ -57,7 +68,6 @@
     </a>
   </div>
 </main>
-
 
 <!-- STYLE ---------------------------------------------------------------------------------------------------------------->
 <style>
@@ -81,18 +91,22 @@
     align-items: center;
     max-width: 800px;
     min-width: 500px;
-    margin: 1rem auto 0 auto;
-    border: 3px solid green;
+    margin: 2rem auto 1rem auto;
+    /* border: 3px solid green; */
   }
 
   .year-cell {
+    width: 40px;
+    color: white;
     text-align: center;
     font-size: 1.25rem;
+    font-weight: 300;
+    /* border: 1px solid pink; */
   }
 
   .empty-year-cell {
-    border: 2px solid red;
     width: 80px;
+    /* border: 2px solid red; */
   }
 
   /* FRAMEWORK CONTAINER ---------------------------------------------------------- */
@@ -105,19 +119,34 @@
     max-width: 800px;
     min-width: 500px;
     width: 100%;
-    margin: 0 auto;
-    border: 1px solid white;
+    margin: 10px auto;
+    /* border: 1px solid white; */
   }
 
   .framework-name-left {
     text-align: right;
     width: 80px;
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
   }
   .framework-name-right {
     width: 80px;
+    /* border: 1px solid orange; */
+  }
 
-    border: 1px solid orange;
+  .empty-chart-cell {
+    width: 40px;
+    height: 40px;
+  }
+
+  .chart-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 99999999rem;
   }
 
   /* Line ------------------------------------ */
@@ -131,21 +160,5 @@
     transform: translate(-50%, -50%);
     border-radius: 9999999rem;
     z-index: -10;
-  }
-
-  .empty-chart-cell {
-    width: 40px;
-    height: 40px;
-  }
-
-  .chart-cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #242424;
-    width: 40px;
-    height: 40px;
-    border-radius: 99999999rem;
   }
 </style>
