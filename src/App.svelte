@@ -15,40 +15,35 @@
     <h1>State of Javascript</h1>
   </header>
 
-  <!-- YEAR CONTAINER ---------------------------------------------------------------->
+  <!-- YEAR CONTAINER --------------------------------------------------------------------------------------------------------->
   <div class="year-container" data-cy="chart-header">
     <div class="empty-cell"></div>
-    <div class="year-cell">
       {#each frameworks[0].surveys as survey}
-      <div>{survey.year}</div>
+      <div class="year-cell">{survey.year}</div>
       {/each}
-    </div>
     <div class="empty-cell"></div>
   </div>
-  <!-- YEAR CONTAINER ---------------------------------------------------------------->
-  <!-- ALL FRAMEWORK CONTAINERS ------------------------------------------------------>
+
+  <!-- ALL FRAMEWORK CONTAINERS ------------------------------------------------------------------------------------------------>
   {#each frameworks as framework}
     <div data-cy="chart-row" class="framework-container framework-container-{framework.name}">
-      <div class="line-container">
-        <p class="framework-name-left" style="color: {framework.color};">
+        <p class="framework-name framework-name-left" style="color: {framework.color};">
           {framework.name}
         </p>
-        <div class="circle-container">
-          <div style="background-color: {framework.color};" class="line" />
-
-          {#each framework.surveys as survey}
-            <div class="circle" style="color: {framework.color};">
-              {survey.retention}%
-            </div>
-          {/each}
+        
+        {#each framework.surveys as survey}
+        <div class="circle" style="color: {framework.color}; border: 2px solid {framework.color};">
+          {survey.retention}%
         </div>
-        <p class="framework-name-right" style="color: {framework.color};">
+        {/each}
+
+        <p class="framework-name framework-name-right" style="color: {framework.color};">
           {framework.name}
         </p>
+        <div style="background-color: {framework.color};" class="line" />
       </div>
-    </div>
   {/each}
-  <!-- ALL FRAMEWORK CONTAINERS ------------------------------------------------------>
+  <!-- FOOTER --------------------------------------------------------------------------------------------------------------->
 
   <footer>hej hej</footer>
 
@@ -79,32 +74,29 @@
   .year-container{
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
     max-width: 800px;
     min-width: 500px;
-    margin: 0 auto;
+    margin: 1rem auto 0 auto;
     border: 3px solid green;
   }
 
   .year-cell{
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    padding: 0 20px 0 20px;
-    border: 2px solid blue;
+    text-align: center;
+    font-size: 1.25rem;
   }
 
   .empty-cell{
-    width: 10%;
     border: 2px solid red;
-
+    width: 80px;
   }
 
   .framework-container {
+    position:relative;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     max-width: 800px;
     min-width: 500px;
     width: 100%;
@@ -114,42 +106,45 @@
 
   .framework-name-left {
     text-align: right;
-    width: 10%;
+    width: 80px;
     border: 1px solid orange;
   }
   .framework-name-right {
-    width: 10%;
+    width: 80px;
 
     border: 1px solid orange;
   }
 
-  .line-container {
-    /* width: 500px; */
-    /* width: 400px; */
+  /* .line-container {
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     border: 1px solid yellow;
-  }
+  } */
 
   .line {
     position: absolute;
-    width: 97%;
+    width: calc(100% - 180px);
+    /* margin: 0 90px 0 90px; */
     height: 4px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
     z-index: -10;
   }
 
   .circle {
-    border: 2px solid red;
-    /* width: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: #242424;
+    width: 40px;
+    height: 40px;
+    border-radius: 99999999rem;
   }
 
-  .circle-container {
+  /* .circle-container {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -159,6 +154,6 @@
     width: 80%;
     border: 2px solid green;
     padding: 0 20px 0 20px;
-  }
+  } */
 
 </style>
