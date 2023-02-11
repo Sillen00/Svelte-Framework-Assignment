@@ -1,20 +1,22 @@
 <script context="module">
+  
   // import svelteLogo from './assets/svelte.svg' //Används inte.
   // import Counter from "./lib/Counter.svelte"; //Används inte.
   import { frameworks } from "../data/index";
-  // import Router from "svelte-spa-router";
 
+  // import Router, {location, link} from "svelte-spa-router/Router.svelte";
   import Interest from "./Interest.svelte";
   import Usage from "./Usage.svelte";
   import Awareness from "./Awareness.svelte";
-  let routes = {
-    "/interest": Interest,
-    "/usage": Usage,
-    "/awareness": Awareness,
-  }
+  // let routes = {
+  //   "/interest": Interest,
+  //   "/usage": Usage,
+  //   "/awareness": Awareness,
+  // }
 </script>
 
 <main>
+  <!-- <Router {routes} /> -->
   <header>
     <h1>State of Javascript</h1>
   </header>
@@ -71,10 +73,10 @@
   <!-- FOOTER --------------------------------------------------------------------------------------------------------------->
 
   <footer>
-    <button>Retention {frameworks[0].surveys[1].retention}</button>
-    <a href="#/interest"><button>Interest</button></a>
-    <a href="#/usage"> <button>Usage</button></a>
-    <a href="#/awareness"><button>Awareness</button></a>
+    <a href="/#/retention"><button>Retention</button></a>
+    <a href="/#/interest"><button>Interest</button></a>
+    <a href="/#/usage"> <button>Usage</button></a>
+    <a href="/#/awareness"><button>Awareness</button></a>
   </footer>
 </main>
 
@@ -86,9 +88,10 @@
 
   main {
     overflow-x: scroll;
+    min-width: 500px;
   }
   header {
-    min-width: 500px;
+    /* min-width: 500px; */
   }
   ::-webkit-scrollbar {
     display: none;
@@ -136,7 +139,7 @@
     align-items: center;
     justify-content: space-between;
     max-width: 800px;
-    min-width: 500px;
+    /* min-width: 500px; */
     width: 100%;
     margin: 10px auto;
     /* border: 1px solid white; */
