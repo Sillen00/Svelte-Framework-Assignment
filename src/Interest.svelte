@@ -2,7 +2,6 @@
   import { frameworks } from "../data/index";
 </script>
 
-<main>
   <!-- YEAR CONTAINER --------------------------------------------------------------------------------------------------------->
   <div class="year-container" data-cy="chart-header">
     <div class="empty-year-cell" />
@@ -52,7 +51,6 @@
       <div style="background-color: {framework.color};" class="line" data-cy="row-line" />
     </div>
   {/each}
-</main>
 
 <!-- STYLE ---------------------------------------------------------------------------------------------------------------->
 <style>
@@ -60,10 +58,10 @@
     box-sizing: border-box;
   }
 
-  main {
-    /* overflow-x: scroll;
-    min-width: 500px; */
-  }
+  /* main {
+    overflow-x: scroll;
+    min-width: 500px;
+  } */
 
   ::-webkit-scrollbar {
     display: none;
@@ -104,7 +102,7 @@
     align-items: center;
     justify-content: space-between;
     max-width: 800px;
-    /* min-width: 500px; */
+    min-width: 500px;
     /* width: 100%; */
     margin: 10px auto;
     /* border: 1px solid white; */
