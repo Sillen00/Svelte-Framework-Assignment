@@ -2,12 +2,12 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
   color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0, 1);
-
+  
   -webkit-text-size-adjust: 100%;
 }
 
 body {
+  background-color: #282828;
   margin: 0;
   padding: 0;
   min-height: 100vh;
