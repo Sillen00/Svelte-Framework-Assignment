@@ -24,7 +24,7 @@
         {framework.name}
       </div>
       <!-- EMPTY FRAMEWORK CELLS -->
-      {#each Array.from({ length: 7 - framework.surveys.length }) as i}
+      {#each Array.from({ length: 7 - framework.surveys.length }) as _empty}
         <div class="empty-chart-cell" data-cy="chart-cell" />
       {/each}
 
@@ -36,7 +36,7 @@
             class="chart-cell"
             style="border: 3px solid {framework.color};"
           >
-            {survey.interest}%
+            {survey.retention}%
           </div>
         </div>
       {/each}
@@ -61,13 +61,14 @@
   }
 
   main {
-    /* overflow-x: scroll;
-    min-width: 500px; */
+    /* overflow-x: scroll; */
+    /* min-width: 500px; */
   }
-
+  
   ::-webkit-scrollbar {
     display: none;
   }
+  
 
   /* YEAR CONTAINTER --------------------------------------------------------------- */
 
