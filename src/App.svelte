@@ -80,13 +80,21 @@
   footer button {
     color: white;
     background-color: rgb(34, 34, 34);
+    text-decoration: none;
     padding: 8px 16px;
+    border: 1px dashed;
     cursor: pointer;
+    transition: all 300ms ease-out 0s;
+  }
+
+  footer button:hover{
+    border-style: solid;
+    color: rgb(81, 242, 203);
   }
 
   @media (max-width: 500px) {
     footer nav {
-      gap: 1px;
+      gap: 10px;
     }
     footer button {
       font-size: 0.75rem;
