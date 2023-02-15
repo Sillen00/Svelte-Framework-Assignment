@@ -58,11 +58,6 @@
     box-sizing: border-box;
   }
 
-  /* main {
-    overflow-x: scroll;
-    min-width: 500px;
-  } */
-
   ::-webkit-scrollbar {
     display: none;
   }

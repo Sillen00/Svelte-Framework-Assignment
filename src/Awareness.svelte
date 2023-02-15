@@ -23,7 +23,7 @@
       {framework.name}
     </div>
     <!-- EMPTY FRAMEWORK CELLS -->
-    {#each Array.from({ length: 7 - framework.surveys.length }) as i}
+    {#each Array.from({ length: 7 - framework.surveys.length }) as _empty}
       <div class="empty-chart-cell" data-cy="chart-cell" />
     {/each}
 
@@ -53,11 +53,6 @@
   * {
     box-sizing: border-box;
   }
-
-  /* main {
-    overflow-x: scroll;
-    min-width: 500px;
-  } */
 
   ::-webkit-scrollbar {
     display: none;
