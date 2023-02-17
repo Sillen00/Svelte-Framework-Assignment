@@ -11,11 +11,8 @@ Skoluppgift inspirerad ifrån [stateofjs](https://stateofjs.com) där jag fick v
 För att sätta upp detta projekt och jobba med Svelte, gör följande.
 
 1. Klona ner projektet.
+
 2. 
-```bash
-cd svelte
-```
-3. 
 ```bash
 npm install
 ```
